@@ -42,15 +42,7 @@ public class Student {
      * @return
      */
     public String formatLastName() {
-        String[] parts = lastName.split("-");
-        if (parts.length > 1) {
-            String formattedLastName = parts[0].toLowerCase() + " ";
-            for (int i = 1; i < parts.length; i++) {
-                formattedLastName += parts[i].substring(0, 1).toUpperCase() + parts[i].substring(1).toLowerCase() + " ";
-            }
-            return formattedLastName.substring(0, formattedLastName.length() - 1);
-        }
-        return lastName.substring(0, 1).toUpperCase() + lastName.substring(1).toLowerCase();
+        return "";
     }
     public String getStudentName() {
         return firstName + " " + formatLastName();

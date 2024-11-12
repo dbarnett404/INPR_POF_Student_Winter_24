@@ -6,19 +6,35 @@ public class Students {
 
     private HashSet<Student> studentSet;
 
+    /**
+     * Constructor for the Students class
+     */
     public Students() {
         students = new ArrayList<>();
 
         studentSet = new HashSet<>();
     }
+
+    /**
+     * Adds a student to the list
+     * @param studentData a CSV String of the relevant student data to add
+     */
     public void add(String studentData){
         students.add(new Student(studentData));
     }
 
+    /**
+     * Adds a student to the list uses polymorphism
+     * @param student the student to add
+     */
     public void add(Student student) {
         students.add(student);
     }
 
+    /**
+     * Returns a list of students as a list of strings
+     * @return the aan Array List of students
+     */
     public ArrayList<String> getStudentList() {
         ArrayList<String> register = new ArrayList<>();
         for (Student student : students) {
@@ -26,6 +42,10 @@ public class Students {
         }
         return register;
     }
+
+    /**
+     * Reads the list of students from a CSV file
+     */
     public void addStudentsFromFile()  {
         try {
             ArrayList<String> studentList = FileIO.readDataFromFile(FileIO.DATA_FILE);
@@ -37,6 +57,9 @@ public class Students {
         }
     }
 
+    /**
+     * Prints the list of students
+     */
     public void printStudents() {
         for (Student student : students) {
             System.out.println(student);
@@ -44,21 +67,18 @@ public class Students {
     }
 
     /**
-     * Comlete the method to search for a student by name or partial name
-     * @param name
-     * @return
+     * Complete the method to search for a student by name or partial name
+     * @param name - the name or partial name to search for
+     * @return the student if found, null otherwise - extension task if more than one match return all matches
      */
-
     public Student searchStudentByName(String name) {
-        for (Student student : students) {
-            if (student.getStudentName().toLowerCase().contains(name.toLowerCase())) {
-                return student;
-            }
-        }
+
         return null;
     }
 
-
+    /**
+     * Saves the current list of students to a CSV file
+     */
     public void saveStudentsToFile() {
         try {
             FileIO.writeDataToFile(FileIO.DATA_FILE, this);
@@ -74,29 +94,6 @@ public class Students {
      * @return the random student
      */
     public Student getRandomStudentNoRepeats() {
-        if (studentSet.size() == students.size()) {
-            System.out.println("All students have been selected. Resetting the set.");
-            studentSet.clear();
-        }
-        int randomIndex = (int) (Math.random() * students.size());
-
-        while (studentSet.contains(students.get(randomIndex))) {
-            randomIndex = (int) (Math.random() * students.size());
-        }
-        studentSet.add(students.get(randomIndex));
-        return students.get(randomIndex);
-    }
-
-    public int getNumStudents() {
-        return students.size();
-    }
-
-    public static void main(String[] args) {
-        Students students = new Students();
-        students.addStudentsFromFile();
-        students.printStudents();
-        for (int i = 0; i < students.getNumStudents() + 1; i++) {
-            System.out.println("Random student " + students.getRandomStudentNoRepeats().getStudentName());
-        }
+        return null;
     }
 }

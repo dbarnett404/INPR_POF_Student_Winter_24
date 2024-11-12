@@ -1,5 +1,8 @@
 import java.util.Scanner;
 
+/**
+ * A helper class to handle user input.
+ */
 public class Input {
     private static final Scanner scanner = new Scanner(System.in);
 
