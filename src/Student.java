@@ -57,8 +57,7 @@ public class Student {
      * @return
      */
     public String generateEmail() {
-        return firstName.substring(0, 1).toLowerCase() + lastName.substring(0, 1).toLowerCase() +
-                getRandomNumber(100, 999) + "@sussex.ac.uk";
+        return "";
     }
     @Override
     public String toString() {
